@@ -1,5 +1,5 @@
  Quiz App 
- Lekka szybka aplikacja webowa typu Quiz z wiedzy ogólnej.
+ Aplikacja webowa typu Quiz z wiedzy ogólnej.
  Projekt nie wymaga rejestracji ani logowania – użytkownik wchodzi i od razu może grać!
 
  Główne funkcje i zasady gry Brak logowania: Gra jest w pełni dostępna od razu po wejściu na stronę (tryb "gościa").
