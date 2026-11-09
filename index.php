@@ -13,7 +13,7 @@
             "Kim jest Tony Stark?" => "Iron Man",
             "W jakiej serii filmów występuje Anakin Skywalker?" => "Gwiezdne Wojny",
             "Kto wyreżyserował 'Pulp Fiction'?" => "Quentin Tarantino",
-            "Jaka to postać z 'Harry'ego Pottera'?" => "Hermiona",
+            "Kto był pierwszym ghostfacem w filmie 'Krzyk''?" => "Stu Macher",
             "W którym roku wyszedł pierwszy 'James Bond'?" => "1962",
             "Jaki to gatunek 'Star Treka'?" => "Sci-Fi",
             "Kto grał Jacka Sparrowa?" => "Johnny Depp",
@@ -72,9 +72,9 @@
         }
 
         echo "<br>";
-        foreach ($wszystkie_pytania[$category] as $klucz => $wartosc) {
-            echo htmlspecialchars($klucz) . "<br>";
-        }
+        $losowa_liczbe_z_kategorii = rand(1,count($wszystkie_pytania[$category]));
+
+        echo array_keys($wszystkie_pytania[$category])[$losowa_liczbe_z_kategorii];
     }
 
     // SPRAWDZANIE ODPOWIEDZI    
@@ -98,7 +98,14 @@
 
         <form action="index.php" method="POST">
             <label for="category">
-                <input type="text" name="category" id="category">
+                Kategoria:
+                <select name="category" id="category">
+                    <?php
+                        foreach(array_keys($wszystkie_pytania) as $cat){
+                            echo "<option value=$cat>$cat</option>";
+                        }
+                    ?>
+                </select>
             </label>
             <button name="get_category">Wyslij Kategorie</button>
         </form>
@@ -111,4 +118,4 @@
         </form>
     </section>
 </body>
-</html>
+</html
