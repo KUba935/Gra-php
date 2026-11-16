@@ -8,10 +8,10 @@
 
     $wszystkie_pytania = [
         "filmy" => [
-            "Kto zagrał w 'Matrixie'?" => "Keanu Reeves",
+            "Kto zagrał głównego bohatera w 'Matrixie'?" => "Keanu Reeves",
             "Jaki film zdobył Oscara w 2020 roku?" => "Parasite",
             "Kim jest Tony Stark?" => "Iron Man",
-            "W jakiej serii filmów występuje Anakin Skywalker?" => "Gwiezdne Wojny",
+            "W jakiej serii filmów występuje postać Anakin Skywalker?" => "Gwiezdne Wojny",
             "Kto wyreżyserował 'Pulp Fiction'?" => "Quentin Tarantino",
             "Kto był pierwszym ghostfacem w filmie 'Krzyk''?" => "Stu Macher",
             "W którym roku wyszedł pierwszy 'James Bond'?" => "1962",
@@ -71,6 +71,10 @@
             echo "kategoria nie posiada 10 pytań";
         }
 
+        if (empty($wszystkie_pytania)) {
+            echo "wystapił blad";
+        }
+
         echo "<br>";
         $losowa_liczbe_z_kategorii = rand(1,count($wszystkie_pytania[$category]));
 
@@ -82,6 +86,9 @@
     // ODCZTYWANIE ODPOWIEDZI
     if (($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST["submit_ans"]))) {
         $ans = strtolower($_POST['answer']);
+        if ($ans == strtolower($wszystkie_pytania[$category])[$losowa_liczbe_z_kategorii]) {
+            echo "Poprawnie";
+        }
     }
 ?>
 
